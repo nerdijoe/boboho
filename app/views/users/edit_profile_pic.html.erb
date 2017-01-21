@@ -1,0 +1,13 @@
+<h2>Edit Profile Pic</h2>
+
+<%= image_tag @user.profile_pic.medium.url %>
+
+
+<%= form_for @user do |form| %>
+  <%= render partial: '/users/form_profile_pic', locals: {form: form} %>
+
+  <div class="submit-field">
+    <%= form.submit 'Save Changes' %>
+  </div>
+
+<% end %>
