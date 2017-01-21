@@ -31,6 +31,8 @@ gem 'bcrypt'
 gem 'omniauth'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'simple_form'
+gem 'country_select'
 gem 'ffaker'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'will_paginate', '~> 3.1.0'
