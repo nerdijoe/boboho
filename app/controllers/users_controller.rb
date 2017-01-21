@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    byebug
     @user = User.find(session[:user_id])
   end
 
@@ -40,6 +39,12 @@ class UsersController < ApplicationController
     flash[:alert] = "User account is deleted"
     redirect_to root_path
   end
+
+
+  def edit_profile_pic
+    @user = User.find(session[:user_id])
+  end
+
 
   private
   def user_params
