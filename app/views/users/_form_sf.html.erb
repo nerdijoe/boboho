@@ -1,0 +1,16 @@
+  <%= f.error_notification %>
+  <%= f.input :username, placeholder: 'Username' %>
+  <%= f.input :email, placeholder: 'Email' %>
+
+  <%= f.input :password, placeholder: 'Password', hint: 'minimum 6 chars.' %>
+  <%= f.input :password_confirmation, placeholder: 'Password Confirmation', hint: 'Please re-enter  your password' %>
+
+  <hr>
+
+  <%= f.input :firstname, placeholder: 'First Name' %>
+  <%= f.input :lastname, placeholder: 'Last Name' %>
+  <%= f.input :phone, placeholder: 'Phone Number' %>
+  <%= f.input :address, placeholder: 'Address' %>
+  <%= f.input :city, placeholder: 'City' %>
+  <%= f.input :country, priority: [ "Malaysia" ] %>
+  <%= f.input :zipcode, placeholder: 'Zipcode' %>

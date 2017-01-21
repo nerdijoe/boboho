@@ -1,0 +1,41 @@
+<h2>User Profile</h2>
+<p><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></p>
+<p><%= link_to 'Delete account', @user, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %></p>
+
+<table class="table table-hover">
+  <tbody>
+        <tr>
+          <td>First Name</td>
+          <td><%=  @user.firstname %></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><%=  @user.lastname %></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><%= @user.username %></td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td><%=  @user.phone %></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td><%=  @user.address %></td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td><%=  @user.city %></td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>#<%=  @user.country %></td>
+        </tr>
+        <tr>
+          <td>Zipcode</td>
+          <td><%=  @user.zipcode %></td>
+        </tr>
+
+      </tbody>
+</table>
