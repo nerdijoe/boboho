@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   get 'static/index'
-
   root 'static#index'
 
-
   resources :users do
-    resources :listings, only: [:index, :new, :create]
+    resources :listings
   end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
 

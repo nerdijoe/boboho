@@ -1,0 +1,11 @@
+<%= f.error_notification %>
+<%= f.input :name, placeholder: 'Item Name' %>
+
+<%= f.input :price, placeholder: 'price' %>
+
+<%= f.input :currency, placeholder: 'Currency' %>
+
+<%= f.input :condition, as: :select, collection: Listing.conditions.map{ |a| [a.first,a.first] } %>
+
+ <%= f.input :delivery, as: :radio_buttons,
+   collection: Listing.deliveries.map{ |a| [a.first,a.first] }, wrapper: :horizontal_radio_and_checkboxes %>
