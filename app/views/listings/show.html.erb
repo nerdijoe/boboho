@@ -1,0 +1,16 @@
+<h2>Listing Detail</h2>
+
+<p><%= link_to "Back", user_listings_path(user_id: current_user.id) %></p>
+
+<% if @listing.photos.present? %>
+  <% @listing.photos.each do |photo| %>
+     <%= image_tag photo.medium.url %>
+  <% end %>
+<% end %>
+
+<p><%= @listing.id %></p>
+<p><%= @listing.name %></p>
+<p><%= @listing.price %></p>
+<p><%= @listing.currency %></p>
+<p><%= @listing.condition %></p>
+<p><%= @listing.delivery %></p>

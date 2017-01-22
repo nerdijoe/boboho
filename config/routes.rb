@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'static/index'
-
   root 'static#index'
 
-
-  resources :users
+  resources :users do
+    resources :listings
+  end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
+
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new', as: 'login'

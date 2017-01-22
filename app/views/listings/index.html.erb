@@ -1,0 +1,29 @@
+<h2>Listings#index</h2>
+<p><%= link_to 'Sell', new_user_listing_path(user_id: current_user.id) %></p>
+
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Currency</th>
+        <th>Condition</th>
+        <th>Delivery</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @listings.each do |listing| %>
+        <tr>
+          <td><%= link_to listing.name, user_listing_path(user_id: current_user.id, id: listing.id)  %></td>
+          <td><%= listing.price %></td>
+          <td><%= listing.currency %></td>
+          <td><%= listing.condition %></td>
+          <td><%= listing.delivery %></td>
+          <td><%= link_to "Edit", edit_user_listing_path(user_id: current_user.id, id: listing.id), class: "btn btn-default"  %>
+          <%= link_to "Delete", user_listing_path(user_id: current_user.id, id: listing.id), method: :delete, data: { confirm: 'Do you want to delete this listing?'}, class: "btn btn-danger"  %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
