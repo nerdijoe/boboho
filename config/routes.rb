@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   root 'static#index'
 
 
-  resources :users
+  resources :users do
+    resources :listings, only: [:index, :new, :create]
+  end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
+
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new', as: 'login'

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   include BCrypt
   has_secure_password
 
+  has_many :listings
+
   mount_uploader :profile_pic, ImageUploader
 
   validates :firstname, presence: true
