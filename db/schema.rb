@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121033329) do
+ActiveRecord::Schema.define(version: 20170122013719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",          precision: 8, scale: 2
+    t.string   "currency"
+    t.text     "description"
+    t.integer  "condition"
+    t.integer  "delivery"
+    t.integer  "subcategory_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "listings", ["subcategory_id"], name: "index_listings_on_subcategory_id", using: :btree
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "firstname"
@@ -34,4 +63,6 @@ ActiveRecord::Schema.define(version: 20170121033329) do
     t.datetime "updated_at",            null: false
   end
 
+  add_foreign_key "listings", "subcategories"
+  add_foreign_key "subcategories", "categories"
 end
