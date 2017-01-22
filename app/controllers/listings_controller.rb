@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.where(user_id: session[:user_id])
+    @categories = Category.all
   end
 
   def new
@@ -11,7 +12,6 @@ class ListingsController < ApplicationController
   end
 
   def create
-    byebug
     @listing = Listing.new(listing_params)
     @listing.user_id = session[:user_id]
 
@@ -23,13 +23,17 @@ class ListingsController < ApplicationController
     end
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+
   def edit
     @listing = Listing.find(params[:id])
   end
 
   def update
     @listing = Listing.find(params[:id])
-    byebug
+
     if @listing.update_attributes(listing_params)
       redirect_to user_listings_path(user_id: session[:user_id]), notice: 'Your listing has been updated.'
     else
@@ -46,6 +50,6 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    params.require(:listing).permit(:name, :price, :currency, :description, :condition, :delivery, :subcategory_id)
+    params.require(:listing).permit(:name, :price, :currency, :description, :condition, :delivery, :subcategory_id, {photos: []})
   end
 end
