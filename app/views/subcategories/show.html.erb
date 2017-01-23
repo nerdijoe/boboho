@@ -1,8 +1,10 @@
 <h2>Subcategories#show</h2>
 
-<h3><%= @subcategory.category.name %></h3>
+<p>
+  <%= link_to "Home", root_path %> / <%= link_to @subcategory.category.name, category_path(@subcategory.category.id) %> / <%= @subcategory.name %>
+</p>
 
-<h3><%= @subcategory.name %></h3>
+<h4><%= @subcategory.name %></h4>
 
 
 <% @subcategory.listings.each do |listing| %>
