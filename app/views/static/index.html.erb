@@ -13,3 +13,19 @@
   <%= link_to 'Sell', new_user_listing_path(user_id: current_user.id) %>
 
 <% end %>
+
+<% @categories.each do |cat| %>
+  <% if cat.listings.present? %>
+
+    <h3><%= cat.name %></h3>
+    <% cat.listings.each do |listing| %>
+
+      <% listing.photos.each do |photo| %>
+        <%= link_to (image_tag photo.url(:thumb)), listing_path(id: listing.id) %>
+      <% end %>
+
+      <p> <%= listing.id %>, <%= listing.name %>, <%= listing.price %> </p>
+    <% end %> <!-- end of cat.listings.each -->
+
+  <% end %> <!-- end of if -->
+<% end %>
