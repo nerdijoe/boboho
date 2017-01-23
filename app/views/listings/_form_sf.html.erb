@@ -9,6 +9,6 @@
 
 <%= f.input :delivery, as: :radio_buttons, collection: Listing.deliveries.map{ |a| [a.first,a.first] }, wrapper: :horizontal_radio_and_checkboxes %>
 
-<%= f.input :photos, as: :file, input_html: {multiple: true} %>
+<%= f.input :photos, as: :file, input_html: {multiple: true}, wrapper: :horizontal_file_input %>
 
 <%= f.association :subcategory %>
