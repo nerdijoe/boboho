@@ -1,0 +1,16 @@
+<h2>Subcategories#show</h2>
+
+<h3><%= @subcategory.category.name %></h3>
+
+<h3><%= @subcategory.name %></h3>
+
+
+<% @subcategory.listings.each do |listing| %>
+  <% listing.photos.each do |photo| %>
+    <%= link_to (image_tag photo.url(:thumb)), listing_path(id: listing.id) %>
+  <% end %>
+
+  <p> <%= listing.id %>, <%= listing.name %>, <%= listing.price %> </p>
+
+
+<% end %>
