@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_pic, ImageUploader
 
+  enum role: [ :normal, :admin ]
+
+
   validates :firstname, presence: true
   validates :lastname, presence: true
 
