@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = session[:user_id]
-    
+
     if @listing.save
       redirect_to root_path, notice: 'Your listing has been created.'
     else
@@ -35,7 +35,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
 
     if @listing.update_attributes(listing_params)
-      redirect_to user_listings_path(user_id: session[:user_id]), notice: 'Your listing has been updated.'
+      redirect_to user_listing_path(user_id: session[:user_id], id: @listing.id), notice: 'Your listing has been updated.'
     else
       flash[:alert] = 'Something is not right, your changes are not saved.'
       render 'edit'
