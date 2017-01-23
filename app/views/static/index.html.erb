@@ -17,7 +17,7 @@
 <% @categories.each do |cat| %>
   <% if cat.listings.present? %>
 
-    <h3><%= cat.name %></h3>
+    <h3><%= link_to cat.name, category_path(cat.id) %></h3>
     <% cat.listings.each do |listing| %>
 
       <% listing.photos.each do |photo| %>
