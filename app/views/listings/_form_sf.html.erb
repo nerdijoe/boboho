@@ -11,6 +11,4 @@
 
 <%= f.input :photos, as: :file, input_html: {multiple: true} %>
 
-<%= f.input :subcategory_id, as: :select, collection: @categories %>
-
 <%= f.association :subcategory %>

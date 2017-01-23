@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = session[:user_id]
-
+    byebug
     if @listing.save
       redirect_to root_path, notice: 'Your listing has been created.'
     else

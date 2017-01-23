@@ -7,10 +7,17 @@ Rails.application.routes.draw do
   end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
 
+  resources :listings, only: [:show]
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
+
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
