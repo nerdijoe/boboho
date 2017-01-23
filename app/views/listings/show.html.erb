@@ -14,6 +14,12 @@
 <p><%= @listing.price %></p>
 <p><%= @listing.currency %></p>
 <p><%= @listing.condition %></p>
+<p>
+  <strong>Description: </strong>
+  <pre>
+    <%= @listing.description %>
+  </pre>
+</p>
 <p><%= @listing.delivery %></p>
 <p>Category: <%= @listing.subcategory.category.name %></p>
 <p>Subcategory: <%= @listing.subcategory.name %></p>
