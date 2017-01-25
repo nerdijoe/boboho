@@ -37,4 +37,8 @@ class ApplicationController < ActionController::Base
      redirect_to '/login', alert: 'You must login to access that page.' unless current_user
   end
 
+  def auth_destroy
+    redirect_to root_path, alert: "You don't have access to do this" unless current_user.superadmin?
+  end
+
 end

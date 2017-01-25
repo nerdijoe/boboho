@@ -1,8 +1,9 @@
 class ListingsController < ApplicationController
   before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
-  before_action only: [:edit, :update, :destroy] do
+  before_action only: [:edit, :update] do
     auth_listings(params[:id])
   end
+  before_action :auth_destroy, only: [:destroy]
 
 
   def index
