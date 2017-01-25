@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_action only: [:edit, :update, :destroy] do
+    auth_users(params[:id])
+  end
+
+
   def new
     @user = User.new
   end
@@ -15,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def edit

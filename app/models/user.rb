@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_pic, ImageUploader
 
-  enum role: [ :normal, :admin ]
-
-
   validates :firstname, presence: true
   validates :lastname, presence: true
 
@@ -22,6 +19,13 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, if: :password
   # validates :password, length: { in: 6..20 }
   # validates_confirmation_of :password
+
+  enum role: [ :normal, :admin, :superadmin ]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :normal
+  end
 
 
 

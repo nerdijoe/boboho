@@ -1,6 +1,14 @@
 <h2>Log in</h2>
 
-<%= simple_form_for :session, {url: sessions_path} do |f| %>
-  <%= render partial: 'form_sf', locals: {f: f} %>
-  <%= f.button :submit, 'Sign In' %>
+<% if logged_in? %>
+  <p>
+    You have logged in. Please logout if you are not <%= current_user.username %>.
+  </p>
+
+<% else %>
+  <%= simple_form_for :session, {url: sessions_path} do |f| %>
+    <%= render partial: 'form_sf', locals: {f: f} %>
+    <%= f.button :submit, 'Sign In' %>
+  <% end %>
+
 <% end %>

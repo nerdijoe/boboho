@@ -1,4 +1,10 @@
 class ListingsController < ApplicationController
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    auth_listings(params[:id])
+  end
+
+
   def index
     @listings = Listing.where(user_id: session[:user_id])
     @categories = Category.all
@@ -29,6 +35,7 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+    # auth_listings(@listing)
   end
 
   def update
@@ -52,4 +59,6 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:name, :price, :currency, :description, :condition, :delivery, :subcategory_id, {photos: []})
   end
+
+
 end
