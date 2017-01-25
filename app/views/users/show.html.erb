@@ -1,6 +1,6 @@
 <h2>User Profile</h2>
-<p><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></p>
-<p><%= link_to 'Edit Profile Picture', edit_profile_pic_path(current_user.id) %></p>
+<p><%= link_to 'Edit Profile', edit_user_path(@user.id) %></p>
+<p><%= link_to 'Edit Profile Picture', edit_profile_pic_path(@user.id) %></p>
 
 <p><%= link_to 'Delete account', @user, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %></p>
 
