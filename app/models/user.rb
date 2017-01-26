@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 
   validates :password, presence: true, length: { in: 6..20 }, confirmation: true, if: :password
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, on: :create
 
 
   # validates :password, length: { in: 6..20 }
