@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123084721) do
+ActiveRecord::Schema.define(version: 20170125095955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20170123084721) do
 
   add_index "listings", ["subcategory_id"], name: "index_listings_on_subcategory_id", using: :btree
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "keyword"
+    t.string   "users"
+    t.string   "items"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subcategories", force: :cascade do |t|
     t.string   "name"

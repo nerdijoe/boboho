@@ -1,0 +1,6 @@
+
+<%= render '/searches/form' %>
+
+<h3>Search Result for "<%= @search.keyword %>"</h3>
+
+<%= render partial: '/shared/show_listings', object: @listings %>
