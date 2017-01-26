@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :subcategories, only: [:show]
 
-
+  resources :searches, only: [:new, :create, :show]
 
 
 
