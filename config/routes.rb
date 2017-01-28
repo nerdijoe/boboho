@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :searches, only: [:new, :create, :show]
 
+  # Omniauth
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

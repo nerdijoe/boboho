@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :listings, :dependent => :destroy
+  has_many :authentications, :dependent => :destroy
 
   mount_uploader :profile_pic, ImageUploader
 
@@ -30,6 +31,27 @@ class User < ActiveRecord::Base
 
   def set_default_role
     self.role ||= :normal
+  end
+
+
+
+  def self.create_with_auth_and_hash(authentication, auth_hash)
+    create! do |u|
+      u.firstname = auth_hash["extra"]["raw_info"]["name"]
+      u.lastname = auth_hash["extra"]["raw_info"]["name"]
+      u.username = auth_hash["extra"]["raw_info"]["id"]
+      u.email = auth_hash["extra"]["raw_info"]["email"]
+      u.email = auth_hash.uid + '@twitter.com' if auth_hash.provider == 'twitter'
+      u.authentications << (authentication)
+      u.password = SecureRandom.hex(3)
+      u.password_confirmation = u.password
+      u.profile_pic = auth_hash['info']['image']
+    end
+  end
+
+  def fb_token
+    x = self.authentications.where(:provider => :facebook).first
+    return x.token unless x.nil?
   end
 
 
