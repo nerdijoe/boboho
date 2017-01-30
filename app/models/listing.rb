@@ -2,6 +2,8 @@ class Listing < ActiveRecord::Base
   belongs_to :subcategory
   belongs_to :user
 
+  has_many :likes, dependent: :destroy
+
   enum condition: [ :New, :Used ]
   enum delivery: { 'Meet Up' => 0, 'Mailing or Delivery'=> 1 }
 

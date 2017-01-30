@@ -1,0 +1,2 @@
+$('#like_listing_<%= @like.listing_id %>').empty();
+$('#like_listing_<%= @like.listing_id %>').append("<%= @like.listing.likes.count %>");

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
 
-  resources :listings, only: [:show]
+  resources :listings, only: [:show] do
+    resources :likes, only: [:create]
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new', as: 'login'
