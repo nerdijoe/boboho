@@ -1,24 +1,33 @@
 <h1>Static#index</h1>
 
 
-<% if logged_in? %>
-  <p>
-    Hi <%= current_user.firstname %>!
-  </p>
-<% end %>
+  <% @categories.each do |cat| %>
+    <% if cat.listings.present? %>
 
-<% @categories.each do |cat| %>
-  <% if cat.listings.present? %>
+      <categories>
+        <h3><%= link_to cat.name, category_path(cat.id) %></h3>
+      </categories>
 
-    <h3><%= link_to cat.name, category_path(cat.id) %></h3>
-    <% cat.listings.each do |listing| %>
+      <div class="listings transitions-disabled">
 
-      <% listing.photos.each do |photo| %>
-        <%= link_to (image_tag photo.url(:thumb)), listing_path(id: listing.id) %>
-      <% end %>
+      <% cat.listings.order(created_at: :desc).limit(4).each do |listing| %>
 
-      <p> <%= listing.id %>, <%= listing.name %>, <%= listing.price %> </p>
-    <% end %> <!-- end of cat.listings.each -->
+        <div class="box panel panel-default">
+          <figure>
+            <%= link_to (image_tag listing.photos[0].medium.url), listing if listing.photos.count > 0 %>
+          </figure>
 
-  <% end %> <!-- end of if -->
-<% end %>
+          <div class="panel-body">
+              <%= truncate(listing.name, length: 33, omission: '...') %>
+          </div>
+          <div class="panel-footer">
+            <%= listing.currency %> <%= listing.price %>
+          </div>
+        </div>
+
+        <% end %> <!-- end of cat.each -->
+      </div>
+
+
+    <% end %> <!-- end of if -->
+  <% end %> <!-- end of categories.each -->
