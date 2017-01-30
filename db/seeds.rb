@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# rake db:seed electronic=yes
+
 if ENV["electronic"]
   cat1 = Category.create(name: "Electronic and Gadgets" )
   subcat11 = Subcategory.create(name: 'Computers', category_id: cat1.id)
@@ -26,5 +28,10 @@ if ENV["phones"]
   subcat32 = Subcategory.create(name: 'Android Phones', category_id: cat3.id)
   subcat33 = Subcategory.create(name: 'Tablets', category_id: cat3.id)
   subcat34 = Subcategory.create(name: 'Mobile & Tablet Accessories', category_id: cat3.id)
-  subcat35 = Subcategory.create(name: 'Others', category_id: cat3.id)
+  subcat35 = Subcategory.create(name: 'Mobile Others', category_id: cat3.id)
+end
+
+if ENV["electronic2"]
+  subcat11 = Subcategory.create(name: 'Gadgets', category_id: 1)
+  subcat12 = Subcategory.create(name: 'Cameras', category_id: 1)
 end

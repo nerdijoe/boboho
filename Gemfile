@@ -46,7 +46,8 @@ gem "mini_magick"
 gem "fog-aws"
 
 gem 'braintree'
-
+gem 'masonry-rails'
+gem 'jquery-turbolinks'
 
 
 
