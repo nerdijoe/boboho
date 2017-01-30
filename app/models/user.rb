@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
   include BCrypt
   has_secure_password
 
-  has_many :listings, :dependent => :destroy
-  has_many :authentications, :dependent => :destroy
+  has_many :listings, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
 
   mount_uploader :profile_pic, ImageUploader
 

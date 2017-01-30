@@ -20,8 +20,28 @@
           <div class="panel-body">
               <%= truncate(listing.name, length: 33, omission: '...') %>
           </div>
+
           <div class="panel-footer">
-            <%= listing.currency %> <%= listing.price %>
+            <div class="row">
+              <div class="col-md-6">
+                <p class="user">
+                  <%= listing.currency %> <%= listing.price %>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <div class="btn-group pull-right">
+                  <%= link_to listing_likes_path(listing), method: :post, class: "btn btn-default", remote: true do %>
+                    <span class="glyphicon glyphicon-heart"></span>
+                      <span id='like_listing_<%= listing.id %>'><%= listing.likes.count %></span>
+
+                  <% end %>
+
+                </div>
+              </div>
+
+            </div> <!-- end of row -->
+
           </div>
         </div>
 
