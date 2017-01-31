@@ -1,0 +1,31 @@
+<div class="box panel panel-default">
+  <figure>
+    <%= link_to (image_tag listing.photos[0].medium.url), listing if listing.photos.count > 0 %>
+  </figure>
+
+  <div class="panel-body">
+      <%= truncate(listing.name, length: 33, omission: '...') %>
+  </div>
+
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="user">
+          <%= listing.currency %> <%= listing.price %>
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="btn-group pull-right">
+          <%= link_to listing_likes_path(listing), method: :post, class: "btn btn-default", remote: true do %>
+            <span class="glyphicon glyphicon-heart"></span>
+              <span id='like_listing_<%= listing.id %>'><%= listing.likes.count %></span>
+
+          <% end %>
+
+        </div>
+      </div>
+
+    </div> <!-- end of row -->
+  </div> <!-- end of panel-footer -->
+</div> <!-- end of box panel panel-default -->

@@ -1,12 +1,11 @@
-<h2>categories#show</h2>
-
 <p>
-  <%= link_to "Home", root_path %> / <%= @category.name %>
+  <%= link_to "Home", root_path %> / <span class='text-muted'><%= @category.name %></span>
 </p>
 
 
 <h4><%= @category.name %></h4>
 
+<hr>
 <p> Subcategories: </p>
 <% @category.subcategories.each do |subcat| %>
   <p>
@@ -15,11 +14,8 @@
 <% end %>
 
 <hr>
-<% @category.listings.each do |listing| %>
-  <% listing.photos.each do |photo| %>
-    <%= link_to (image_tag photo.url(:thumb)), listing_path(id: listing.id) %>
+<div class="listings transitions-disabled">
+  <% @category.listings.each do |listing| %>
+    <%= render partial: '/shared/listing_thumbnails', locals: {listing: listing} %>
   <% end %>
-
-  <p> <%= listing.id %>, <%= listing.name %>, <%= listing.price %> </p>
-
-<% end %>
+</div>

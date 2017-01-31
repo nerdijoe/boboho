@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # helper ApplicationHelper
-  helper_method [:current_user, :logged_in?, :is_owner?]
+  helper_method [:current_user, :logged_in?, :is_owner?, :is_real_user?]
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

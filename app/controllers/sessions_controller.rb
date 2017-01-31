@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
       user = authentication.user
       authentication.update_token(auth_hash)
       @next = root_url
-      @notice = "User is signed in via Facebook login"
+      @notice = "User is logged in via Facebook"
       # byebug
     else
       user = User.create_with_auth_and_hash(authentication, auth_hash)
