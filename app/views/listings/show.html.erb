@@ -28,3 +28,5 @@
 <p>Category: <%= @listing.subcategory.category.name %></p>
 <p>Subcategory: <%= @listing.subcategory.name %></p>
 <p>Posted by <%= link_to @listing.user.username, user_path(@listing.user.id) %></p>
+
+<%= link_to "Chat with Seller", user_listing_chat_path(user_id: @listing.user.id, listing_id: @listing.id), class: "btn btn-success"%>

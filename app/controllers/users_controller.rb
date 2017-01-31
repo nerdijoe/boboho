@@ -50,6 +50,12 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
+  def chat
+
+    @user = User.find(params[:user_id])
+    @listing = Listing.find(params[:listing_id])
+    byebug
+  end
 
   private
   def user_params

@@ -49,6 +49,8 @@ gem 'braintree'
 gem 'masonry-rails'
 gem 'jquery-turbolinks'
 
+gem 'twilio-ruby'
+
 
 
 # Use Unicorn as the app server

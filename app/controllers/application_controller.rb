@@ -41,4 +41,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "You don't have access to do this" unless current_user.superadmin?
   end
 
+  def authenticate!
+    redirect_to '/login' and return unless logged_in?
+  end
+
 end
