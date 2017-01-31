@@ -102,6 +102,8 @@ GEM
     ffi (1.9.14)
     figaro (1.1.1)
       thor (~> 0.14)
+    flexslider (2.2.0)
+      sass-rails (>= 3.1.0)
     fog-aws (1.2.0)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
@@ -333,6 +335,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   figaro
+  flexslider
   fog-aws
   guard-rspec
   jbuilder (~> 2.0)

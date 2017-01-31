@@ -1,0 +1,90 @@
+
+<div class="row" id="listing_show">
+  <div class="col-md-5">
+
+    <div class="panel panel-default">
+
+      <div class="panel-heading pin_image">
+        <% if @listing.photos.present? %>
+        <div class="flexslider" style:"width:100px">
+          <ul class="slides">
+
+          <% @listing.photos.each_with_index do |photo, i| %>
+               <li data-thumb="<%= photo.thumb.url %>">
+                 <%= image_tag photo.medium.url %>
+               </li>
+          <% end %>
+
+          </ul>
+        </div>
+        <% end %>
+      </div>
+
+    </div> <!-- end of panel panel-default -->
+  </div> <!-- end of col-md-5 -->
+
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+  <div class="col-md-5">
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+        <h3> <%=  @listing.name %></h3>
+        <span class="label label-info"><%= @listing.condition %></span>
+
+        <p class="description">
+          <p class='info'>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= link_to @listing.user.username, user_path(@listing.user.id) %>
+          </p>
+
+          <p class='info'>
+            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <%= @listing.currency %> <%= @listing.price %>
+          </p>
+
+          <p class='info'>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @listing.user.city %>, <%= @listing.user.country %>
+          </p>
+
+          <br>
+          <h4> Description </h4>
+          <p class="description">
+
+              <%= @listing.description %>
+
+          </p>
+
+        </p>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 pull-center">
+            <% if logged_in? && !is_owner?(@listing) %>
+              <%= link_to "Chat with Seller", user_listing_chat_path(user_id: @listing.user.id, listing_id: @listing.id), class: "btn btn-success"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="user">
+              <small>Listed on <%= @listing.created_at.strftime("%h %d, %Y") %> </small>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <% if logged_in? && is_owner?(@listing) %>
+                  <p><%= link_to "Edit", edit_user_listing_path(user_id: current_user.id, id: @listing.id), class: "btn btn-default"  %></p>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end of footer -->
+
+
+    </div> <!-- end of panel panel-default -->
+  </div>
+
+</div>

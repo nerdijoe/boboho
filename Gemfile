@@ -50,6 +50,7 @@ gem 'masonry-rails'
 gem 'jquery-turbolinks'
 
 gem 'twilio-ruby'
+gem 'flexslider'
 
 
 

@@ -16,3 +16,12 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
+//= require jquery.flexslider-min
+
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});

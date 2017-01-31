@@ -36,8 +36,11 @@ $(function() {
                 .then(function(channel) {
                     chatChannel = channel;
                     setupChannel();
+
                 });
             }
+
+            document.getElementById('startChat').style.display = 'none'
         });
     });
 

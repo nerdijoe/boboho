@@ -51,10 +51,8 @@ class UsersController < ApplicationController
   end
 
   def chat
-
     @user = User.find(params[:user_id])
-    @listing = Listing.find(params[:listing_id])
-    byebug
+    # @listing = Listing.find(params[:listing_id])
   end
 
   private
