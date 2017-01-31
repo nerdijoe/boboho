@@ -3,12 +3,17 @@ Rails.application.routes.draw do
   root 'static#index'
 
   resources :users do
-    resources :listings
+    resources :listings do
+      get 'chat' => 'users#chat'
+    end
+
+    # post 'tokens' => "tokens#create"
   end
   get 'edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
 
   resources :listings, only: [:show] do
     resources :likes, only: [:create]
+    get 'chat' => 'users#chat'
   end
 
   resources :sessions, only: [:new, :create, :destroy]

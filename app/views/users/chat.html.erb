@@ -1,0 +1,13 @@
+
+<%= @user.username %>
+
+<%= link_to "Click to start chatting", "" , class: 'btn btn-primary', id: 'startChat', remote: true %>
+<% byebug %>
+<div class="row">
+ <div class="col-md-8">
+   <div id="messages"></div>
+   <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
+ </div>
+</div>
+
+<br>
