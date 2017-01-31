@@ -1,4 +1,9 @@
 
 <h4><strong>Showing result for "<%= @search.keyword %>"</strong></h4>
 <hr>
-<%= render partial: '/shared/show_listings', object: @listings %>
+
+<div class="listings transitions-disabled">
+  <% @listings.each do |listing| %>
+    <%= render partial: '/shared/listing_thumbnails', locals: {listing: listing} %>
+  <% end %>
+</div>

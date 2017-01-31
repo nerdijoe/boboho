@@ -1,18 +1,11 @@
-<h2>Subcategories#show</h2>
-
 <p>
-  <%= link_to "Home", root_path %> / <%= link_to @subcategory.category.name, category_path(@subcategory.category.id) %> / <%= @subcategory.name %>
+  <%= link_to "Home", root_path %> / <%= link_to @subcategory.category.name, category_path(@subcategory.category.id) %> / <span class='text-muted'><%= @subcategory.name %></span>
 </p>
 
 <h4><%= @subcategory.name %></h4>
 
-
-<% @subcategory.listings.each do |listing| %>
-  <% listing.photos.each do |photo| %>
-    <%= link_to (image_tag photo.url(:thumb)), listing_path(id: listing.id) %>
+<div class="listings transitions-disabled">
+  <% @subcategory.listings.each do |listing| %>
+    <%= render partial: '/shared/listing_thumbnails', locals: {listing: listing} %>
   <% end %>
-
-  <p> <%= listing.id %>, <%= listing.name %>, <%= listing.price %> </p>
-
-
-<% end %>
+</div>
