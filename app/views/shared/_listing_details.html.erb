@@ -1,0 +1,71 @@
+
+<div class="row" id="pin_show">
+  <div class="col-md-6 col-md-offset-2">
+    <div class="panel panel-default">
+
+      <div class="panel-heading pin_image">
+        <% if @listing.photos.present? %>
+        <div class="flexslider" style:"width:100px">
+          <ul class="slides">
+
+          <% @listing.photos.each_with_index do |photo, i| %>
+               <li data-thumb="<%= photo.thumb.url %>">
+                 <%= image_tag photo.medium.url %>
+               </li>
+          <% end %>
+
+          </ul>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="panel-body">
+        <h3> <%=  @listing.name %> <span class="label label-success"><%= @listing.condition %></span></h3>
+        <p class="description">
+
+          <table class="table table-hover">
+            <tbody>
+                  <tr>
+                    <td>Price</td>
+                    <td><%=  @listing.price %></td>
+                  </tr>
+                  <tr>
+                    <td>Currency</td>
+                    <td><%= @listing.currency %></td>
+                  </tr>
+                  <tr>
+                    <td>Description</td>
+                    <td><%=  @listing.description %></td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Method</td>
+                    <td><%=  @listing.delivery %></td>
+                  </tr>
+
+                </tbody>
+          </table>
+
+        </p>
+      </div>
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="user">
+              Posted on
+              <%= @listing.created_at.to_date %>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <% if logged_in? && is_owner?(@listing) %>
+                  <p><%= link_to "Edit", edit_user_listing_path(user_id: current_user.id, id: @listing.id), class: "btn btn-default"  %></p>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

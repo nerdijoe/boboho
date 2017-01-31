@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :listings do
       get 'chat' => 'users#chat'
     end
+    get 'chat' => 'users#chat'
 
     # post 'tokens' => "tokens#create"
   end
