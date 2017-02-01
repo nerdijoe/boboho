@@ -4,7 +4,11 @@
     <div class="banner banner_image">
       <ul class="slides">
         <li>
-          <%= link_to (image_tag "banner01.jpg"), subcategory_path(@gadgets) %>
+          <% if @gadgets.present? %>
+            <%= link_to (image_tag "banner01.jpg"), subcategory_path(@gadgets) %>
+          <% else %>
+            <%= image_tag "banner01.jpg" %>
+          <% end %>
         </li>
 
         <li>
@@ -21,7 +25,11 @@
     <div class="banner banner_side banner_image">
       <ul class="slides">
         <li>
-          <%= link_to (image_tag "banner_side_vr.jpg"), subcategory_path(@vr) %>
+          <% if @vr.present? %>
+            <%= link_to (image_tag "banner_side_vr.jpg"), subcategory_path(@vr) %>
+          <% else %>
+            <%= image_tag "banner_side_vr.jpg" %>
+          <% end %>
         </li>
       </ul>
     </div>
@@ -29,7 +37,12 @@
     <div class="banner banner_side banner_image">
       <ul class="slides">
         <li>
-          <%= link_to (image_tag "banner_side_drones.jpg"), subcategory_path(@drones) %>
+          <% if @drones.present? %>
+            <%= link_to (image_tag "banner_side_drones.jpg"), subcategory_path(@drones) %>
+          <% else %>
+            <%= image_tag "banner_side_drones.jpg" %>
+          <% end %>
+
         </li>
       </ul>
     </div>
