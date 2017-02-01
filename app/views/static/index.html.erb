@@ -19,12 +19,13 @@
   </div>
 </div>
 
+<br>
 
   <% @categories.each do |cat| %>
     <% if cat.listings.present? %>
 
       <categories>
-        <h3><%= link_to cat.name, category_path(cat.id) %></h3>
+        <h4><%= link_to cat.name, category_path(cat.id) %></h4>
       </categories>
 
       <div class="listings transitions-disabled">
@@ -38,4 +39,6 @@
 
 
     <% end %> <!-- end of if -->
+
+    <br>
   <% end %> <!-- end of categories.each -->
