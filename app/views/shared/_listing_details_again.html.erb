@@ -74,8 +74,17 @@
           </div>
           <div class="col-md-6">
             <div class="btn-group pull-right">
-              <% if logged_in? && is_owner?(@listing) %>
-                  <p><%= link_to "Edit", edit_user_listing_path(user_id: current_user.id, id: @listing.id), class: "btn btn-default"  %></p>
+              <% if logged_in? %>
+
+                <%= link_to listing_likes_path(@listing), method: :post, class: "btn btn-default", remote: true do %>
+                  <span class="glyphicon glyphicon-heart"></span><span id='like_listing_<%= @listing.id %>'><%= @listing.likes.count %></span>
+                <% end %>
+
+                <% if is_owner?(@listing) %>
+                  <%= link_to "Edit", edit_user_listing_path(user_id: current_user.id, id: @listing.id), class: "btn btn-default"  %>
+                <% end %>
+
+
 
               <% end %>
             </div>
