@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2>Login</h2>
 
 <% if logged_in? %>
   <p>
@@ -6,9 +6,9 @@
   </p>
 
 <% else %>
-  <%= simple_form_for :session, {url: sessions_path} do |f| %>
+  <%= simple_form_for :session, url: sessions_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
     <%= render partial: 'form_sf', locals: {f: f} %>
-    <%= f.button :submit, 'Sign In' %>
+    <%= f.button :submit, 'Sign In', class: 'btn btn-primary pull-right' %>
   <% end %>
 
 <% end %>
