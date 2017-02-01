@@ -51,8 +51,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    Listing.find(params[:id]).destroy
-    redirect_to user_listings_path(user_id: session[:user_id]), notice: "Your listing has been deleted."
+    listing = Listing.find(params[:id])
+    listing.destroy
+    # redirect_to user_listings_path(user_id: session[:user_id]), notice: "Your listing has been deleted."
+    redirect_to root_path, notice: "Listing #{listing.name} has been deleted."
   end
 
 

@@ -11,6 +11,9 @@
         </div>
 
         <h4> <%=  @user.firstname %> </h4>
+        <% if @user.superadmin? %>
+          <span class="label label-success"><%= @user.role %></span>
+        <% end %>
         <p class="description">
           <p class="info"> @<%= @user.username %> </p>
           <p class="info text-muted"> Joined on <%= @user.created_at.strftime("%h %d, %Y") %> </p>

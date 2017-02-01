@@ -1,9 +1,9 @@
 # Boboho
 
 ### Build a Rails app based on:
-* A Second-Hand Buy and Sell App (e.g. Carousell, mudah.com.my, imsold)
+* A Second-Hand Buy and Sell App (Carousell)
 
-6 features:
+The app has 6 features:
 
 1. A user authentication feature built from scratch (sign up/sign in). Not using clearance/devise gem. Using gem bcrypt.
 2. A user authentication feature using OAuth. Using Omniauth and Omniauth-Facebook gems.
