@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8">
 
     <div class="banner banner_image">
       <ul class="slides">
@@ -14,12 +14,32 @@
       </ul>
     </div>
 
+  </div>
 
+  <div class="col-md-4">
+
+    <div class="banner banner_side banner_image">
+      <ul class="slides">
+        <li>
+          <%= link_to (image_tag "banner_side_vr.jpg"), subcategory_path(@vr) %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="banner banner_side banner_image">
+      <ul class="slides">
+        <li>
+          <%= link_to (image_tag "banner_side_drones.jpg"), subcategory_path(@drones) %>
+        </li>
+      </ul>
+    </div>
 
   </div>
-</div>
+
+</div> <!-- end of row -->
 
 <br>
+<hr>
 
   <% @categories.each do |cat| %>
     <% if cat.listings.present? %>

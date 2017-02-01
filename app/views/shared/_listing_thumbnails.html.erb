@@ -9,13 +9,13 @@
 
   <div class="panel-footer">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-7">
         <p class="user">
           <%= listing.currency %> <%= listing.price %>
         </p>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="btn-group pull-right">
           <%= link_to listing_likes_path(listing), method: :post, class: "btn btn-default", remote: true do %>
             <span class="glyphicon glyphicon-heart"></span>
