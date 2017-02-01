@@ -1,9 +1,31 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="banner banner_image">
+      <ul class="slides">
+        <li>
+          <%= link_to (image_tag "banner01.jpg"), subcategory_path(@gadgets) %>
+        </li>
+
+        <li>
+          <%= image_tag "banner02.jpg" %>
+        </li>
+
+      </ul>
+    </div>
+
+
+
+  </div>
+</div>
+
+<br>
 
   <% @categories.each do |cat| %>
     <% if cat.listings.present? %>
 
       <categories>
-        <h3><%= link_to cat.name, category_path(cat.id) %></h3>
+        <h4><%= link_to cat.name, category_path(cat.id) %></h4>
       </categories>
 
       <div class="listings transitions-disabled">
@@ -17,4 +39,6 @@
 
 
     <% end %> <!-- end of if -->
+
+    <br>
   <% end %> <!-- end of categories.each -->

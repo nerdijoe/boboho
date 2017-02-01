@@ -35,3 +35,8 @@ if ENV["electronic2"]
   subcat11 = Subcategory.create(name: 'Gadgets', category_id: 1)
   subcat12 = Subcategory.create(name: 'Cameras', category_id: 1)
 end
+
+if ENV["electronic3"]
+  subcat13 = Subcategory.create(name: 'Drones', category_id: 1)
+  subcat14 = Subcategory.create(name: 'Headphones', category_id: 1)
+end
