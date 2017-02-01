@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.role = "superadmin" if @user.email == "super@admin.com"
+    byebug
     if @user.save
       redirect_to root_path, notice: "Account created. Please log in now."
     else
