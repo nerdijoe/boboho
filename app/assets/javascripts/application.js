@@ -26,6 +26,7 @@ $(window).load(function() {
   });
 
   $('.banner').flexslider({
-    animation: "slide"
+    animation: "slide",
+    directionNav: false
   });
 });
