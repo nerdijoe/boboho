@@ -11,6 +11,6 @@ describe "user login" do
 
     click_button "Sign In"
     current_path.should eq(root_path)
-    expect(page).to have_content('Profile')
+    expect(page).to have_content('Sell')
   end
 end

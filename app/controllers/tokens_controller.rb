@@ -22,7 +22,6 @@ class TokensController < ApplicationController
     token = get_token
     grant = get_grant
     token.add_grant(grant)
-    # byebug
     render json: {username: current_user.username, token: token.to_jwt}
   end
 
