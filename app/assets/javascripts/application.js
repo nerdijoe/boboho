@@ -24,4 +24,8 @@ $(window).load(function() {
     animation: "slide",
     controlNav: "thumbnails"
   });
+
+  $('.banner').flexslider({
+    animation: "slide"
+  });
 });
